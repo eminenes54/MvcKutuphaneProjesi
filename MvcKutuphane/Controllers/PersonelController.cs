@@ -9,7 +9,7 @@ namespace MvcKutuphane.Controllers
     public class PersonelController : Controller
     {
         // GET: Personel
-        DBKUTUPHANEEntities1 db = new DBKUTUPHANEEntities1();
+        DBKUTUPHANEEntities2 db = new DBKUTUPHANEEntities2();
         public ActionResult Index()
         {
             var degerler = db.TBLPERSONEL.ToList();

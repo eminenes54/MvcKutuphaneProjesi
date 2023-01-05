@@ -13,7 +13,7 @@ namespace MvcKutuphane.Controllers
     public class UyeController : Controller
     {
         // GET: Uye
-        DBKUTUPHANEEntities1 db = new DBKUTUPHANEEntities1();
+        DBKUTUPHANEEntities2 db = new DBKUTUPHANEEntities2();
         public ActionResult Index(int sayfa = 1)
         {
             //var degerler = db.TBLUYELER.ToList();

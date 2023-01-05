@@ -12,7 +12,7 @@ namespace MvcKutuphane.Controllers
     public class KitapController : Controller
     {
         // GET: Kitap
-        DBKUTUPHANEEntities1 db = new DBKUTUPHANEEntities1();
+        DBKUTUPHANEEntities2 db = new DBKUTUPHANEEntities2();
         public ActionResult Index(string p)
         {
             var kitaplar = from k in db.TBLKITAP select k;
