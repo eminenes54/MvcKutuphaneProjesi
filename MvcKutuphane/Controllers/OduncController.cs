@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MvcKutuphane.Models.Entity;
+using System.Data.SqlTypes;
 
 namespace MvcKutuphane.Controllers
 {
@@ -30,9 +31,13 @@ namespace MvcKutuphane.Controllers
             db.SaveChanges();
             return View();
         }
-        public ActionResult Odunciade(int id)
+        public ActionResult Odunciade(TBLHAREKET p)
         {
-            var odn = db.TBLHAREKET.Find(id);
+            var odn = db.TBLHAREKET.Find(p.ID);
+            DateTime d1 = DateTime.Parse(odn.IADETARIH.ToString());
+            DateTime d2 = Convert.ToDateTime(DateTime.Now.ToShortDateString());
+            TimeSpan d3 = d2 -d1;
+            ViewBag.dgr = d3;
             return View("Odunciade",odn);
         }
         public ActionResult OduncGuncelle(TBLHAREKET p)
