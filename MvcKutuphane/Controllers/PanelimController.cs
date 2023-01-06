@@ -30,7 +30,14 @@ namespace MvcKutuphane.Controllers
             uye.OKUL= p.OKUL;
             uye.KULLANICIADI = p.KULLANICIADI;
             db.SaveChanges();
-            return View("Index");
+            return RedirectToAction("Index");
+        }
+        public ActionResult Kitaplarim()
+        {
+            var kullanici = (string)Session["Mail"];
+            var id = db.TBLUYELER.Where(x => x.MAIL == kullanici.ToString()).Select(z => z.ID).FirstOrDefault();
+            var degerler = db.TBLHAREKET.Where(x => x.UYE == id).ToList();
+            return View(degerler);
         }
     }
 }
